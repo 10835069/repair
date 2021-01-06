@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <table class="table table-sm">
+  {{ form.as_table }}
+  </table>
+  <input class="btn btn-primary" type="submit" value="送出" />   
+</form>
+<script>
+// 取得表格內的所有輸入元件(<input>與<textarea>)
+var inputs = document.querySelectorAll('table input, table textarea');
+inputs.forEach(function(item) {
+  // 為每一個輸入元件新增套用 form-control 類別
+  item.classList.add('form-control');
+});
+</script>
+{% endblock %}
